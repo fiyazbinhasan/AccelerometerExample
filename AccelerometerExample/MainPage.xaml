@@ -11,13 +11,12 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    SupportedOrientations="PortraitOrLandscape" Orientation="PortraitUp"
+    shell:SystemTray.IsVisible="True" OrientationChanged="PhoneApplicationPage_OrientationChanged">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -41,18 +40,13 @@
          -->
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28"/>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock  Height="30" HorizontalAlignment="Left"  Margin="20,0,0,0" Name="xTextBlock" Text="X: 1.0" VerticalAlignment="Top" Foreground="Red" FontSize="28" FontWeight="Bold"/>
-            <TextBlock  Height="30" HorizontalAlignment="Center"  Margin="0,0,0,0" Name="yTextBlock" Text="Y: 1.0" VerticalAlignment="Top" Foreground="Green" FontSize="28" FontWeight="Bold"/>
-            <TextBlock  Height="30" HorizontalAlignment="Right"  Margin="0,0,20,0" Name="zTextBlock" Text="Z: 1.0" VerticalAlignment="Top"  Foreground="Blue" FontSize="28" FontWeight="Bold"/>
-            <maps:Map  x:Name="Map" Visibility="Collapsed" Margin="0,35,0,36"></maps:Map>
-            <TextBlock Height="30" HorizontalAlignment="Center" Margin="6,571,6,0" Name="statusTextBlock" Text="TextBlock" VerticalAlignment="Top" Width="444" />
+        <Grid x:Name="ContentPanel" Margin="12,0,12,0">
+            <maps:Map  x:Name="Map" Visibility="Visible"></maps:Map>
+            <Image x:Name="Image" Visibility="Collapsed"></Image>
+            <TextBlock Text="X:1.00" Foreground="Chartreuse" FontSize="40" x:Name="TextBlock"></TextBlock>
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
